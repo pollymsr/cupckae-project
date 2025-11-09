@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "server/_core/index.ts",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "server/_core/index.ts" },
+    { "src": "/(.*)", "dest": "/dist/$1" }
+  ],
+  "env": {
+    "DATABASE_URL": "@mongodb_url"
+  }
+}
