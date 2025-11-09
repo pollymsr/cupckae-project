@@ -11,8 +11,7 @@ export interface IProduct extends Document {
   updatedAt?: Date;
 }
 
-// Use type assertion to simplify the schema type
-const ProductSchema = new Schema<IProduct>(
+const ProductSchema = new Schema(
   {
     name: { type: String, required: true },
     description: { type: String },
@@ -22,9 +21,8 @@ const ProductSchema = new Schema<IProduct>(
     available: { type: Boolean, default: true },
   },
   { timestamps: true }
-) as Schema<IProduct>;
+);
 
-// Model creation
 export const Product: Model<IProduct> = mongoose.models.Product || 
   mongoose.model<IProduct>('Product', ProductSchema);
 
