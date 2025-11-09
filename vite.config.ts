@@ -4,15 +4,8 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
-  server: {
-    port: 5173,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3000',
-        changeOrigin: true,
-        secure: false
-      }
-    }
-  },
-  build: { outDir: "dist" }
+  base: '/cupckae-project/',
+  build: { 
+    outDir: "dist"
+  }
 });
