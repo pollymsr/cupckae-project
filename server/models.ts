@@ -23,8 +23,13 @@ const ProductSchema = new Schema<IProduct>(
   { timestamps: true }
 );
 
-// Se já existe o modelo (hot reload no dev), reutiliza
-const Product = mongoose.models.Product as Model<IProduct> || mongoose.model<IProduct>('Product', ProductSchema);
+// Cria ou reutiliza o modelo de forma simples
+let Product: Model<IProduct>;
+if (mongoose.models.Product) {
+  Product = mongoose.models.Product as Model<IProduct>;
+} else {
+  Product = mongoose.model<IProduct>('Product', ProductSchema);
+}
 
 export { Product };
 export default { Product };
