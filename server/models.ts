@@ -11,17 +11,20 @@ export interface IProduct extends Document {
   updatedAt?: Date;
 }
 
-const ProductSchema = new Schema({
-  name: { type: String, required: true },
-  description: { type: String },
-  price: { type: Number, required: true },
-  image: { type: String },
-  category: { type: String, default: 'Uncategorized' },
-  available: { type: Boolean, default: true },
-}, { timestamps: true });
+const ProductSchema = new Schema<IProduct>(
+  {
+    name: { type: String, required: true },
+    description: { type: String },
+    price: { type: Number, required: true },
+    image: { type: String },
+    category: { type: String, default: 'Uncategorized' },
+    available: { type: Boolean, default: true },
+  },
+  { timestamps: true }
+);
 
-const Product = (mongoose.models.Product ||
-  mongoose.model('Product', ProductSchema)) as Model<IProduct>;
+// Se já existe o modelo (hot reload no dev), reutiliza
+const Product = mongoose.models.Product as Model<IProduct> || mongoose.model<IProduct>('Product', ProductSchema);
 
 export { Product };
 export default { Product };
