@@ -11,6 +11,7 @@ export interface IProduct extends Document {
   updatedAt?: Date;
 }
 
+// Use type assertion to simplify the schema type
 const ProductSchema = new Schema<IProduct>(
   {
     name: { type: String, required: true },
@@ -21,15 +22,10 @@ const ProductSchema = new Schema<IProduct>(
     available: { type: Boolean, default: true },
   },
   { timestamps: true }
-);
+) as Schema<IProduct>;
 
-// Cria ou reutiliza o modelo de forma simples
-let Product: Model<IProduct>;
-if (mongoose.models.Product) {
-  Product = mongoose.models.Product as Model<IProduct>;
-} else {
-  Product = mongoose.model<IProduct>('Product', ProductSchema);
-}
+// Model creation
+export const Product: Model<IProduct> = mongoose.models.Product || 
+  mongoose.model<IProduct>('Product', ProductSchema);
 
-export { Product };
 export default { Product };
