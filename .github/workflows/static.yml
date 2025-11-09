@@ -14,7 +14,7 @@ jobs:
         run: |
           mkdir -p dist
           
-          # index.html
+          # index.html - Página Principal
           cat > dist/index.html << 'EOF'
           <!DOCTYPE html>
           <html lang="pt-BR">
@@ -60,18 +60,18 @@ jobs:
               <div class="container">
                   <h1>🧁 Polly's Cupcakes</h1>
                   <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem;">
-                      Os cupcakes mais deliciosos da região!
+                      Os cupcakes mais deliciosos da região! Feitos com ingredientes frescos e muito amor.
                   </p>
                   <div>
-                      <a href="/cupckae-project/menu" class="btn">Ver Cardápio</a>
-                      <a href="/cupckae-project/checkout" class="btn">Fazer Pedido</a>
+                      <a href="menu.html" class="btn">Ver Cardápio</a>
+                      <a href="checkout.html" class="btn">Fazer Pedido</a>
                   </div>
               </div>
           </body>
           </html>
           EOF
           
-          # menu.html
+          # menu.html - Cardápio
           cat > dist/menu.html << 'EOF'
           <!DOCTYPE html>
           <html lang="pt-BR">
@@ -135,24 +135,24 @@ jobs:
           <body>
               <div class="container">
                   <div class="header">
-                      <a href="/cupckae-project/" class="back-btn">← Voltar</a>
+                      <a href="index.html" class="back-btn">← Voltar</a>
                       <h1>🍰 Nosso Cardápio</h1>
                   </div>
                   
                   <div class="cupcake-grid">
                       <div class="cupcake-card">
                           <h3>Cupcake de Baunilha</h3>
-                          <p>Macio e leve, coberto com glacê</p>
+                          <p>Macio e leve, coberto com glacê branco</p>
                           <div class="price">R$ 9,90</div>
                       </div>
                       <div class="cupcake-card">
                           <h3>Cupcake de Chocolate</h3>
-                          <p>Intenso e cremoso</p>
+                          <p>Intenso e cremoso, para os amantes de chocolate</p>
                           <div class="price">R$ 11,50</div>
                       </div>
                       <div class="cupcake-card">
                           <h3>Red Velvet</h3>
-                          <p>Clássico e irresistível</p>
+                          <p>Clássico red velvet com cream cheese</p>
                           <div class="price">R$ 12,00</div>
                       </div>
                   </div>
@@ -161,7 +161,7 @@ jobs:
           </html>
           EOF
           
-          # checkout.html
+          # checkout.html - Finalizar Pedido
           cat > dist/checkout.html << 'EOF'
           <!DOCTYPE html>
           <html lang="pt-BR">
@@ -224,7 +224,7 @@ jobs:
           </head>
           <body>
               <div class="container">
-                  <a href="/cupckae-project/menu" class="back-btn">← Voltar ao Cardápio</a>
+                  <a href="menu.html" class="back-btn">← Voltar ao Cardápio</a>
                   <h1>📦 Finalizar Pedido</h1>
                   
                   <form>
@@ -240,7 +240,7 @@ jobs:
                           <label>Telefone:</label>
                           <input type="tel" placeholder="(11) 99999-9999">
                       </div>
-                      <button type="button" class="order-btn" onclick="alert('Pedido realizado com sucesso! 🎉')">
+                      <button type="button" class="order-btn" onclick="alert('Pedido realizado com sucesso! 🎉\\nEm breve entraremos em contato.')">
                           Finalizar Pedido
                       </button>
                   </form>
