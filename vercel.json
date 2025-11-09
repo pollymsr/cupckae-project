@@ -10,6 +10,6 @@
     { "src": "/(.*)", "dest": "/dist/$1" }
   ],
   "env": {
-    "DATABASE_URL": "@mongodb_url"
+    "DATABASE_URL": "mongodb+srv://popollymsr_db_user:hAFQUYBwzB7tq8A9@cluster0.k0obyd5.mongodb.net/?appName=Cluster0"
   }
 }
