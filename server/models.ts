@@ -20,8 +20,8 @@ const ProductSchema = new Schema({
   available: { type: Boolean, default: true },
 }, { timestamps: true });
 
-const Product: Model<IProduct> =
-  mongoose.models.Product || mongoose.model<IProduct>('Product', ProductSchema);
+const Product = (mongoose.models.Product ||
+  mongoose.model('Product', ProductSchema)) as Model<IProduct>;
 
 export { Product };
 export default { Product };
